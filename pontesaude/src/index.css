@@ -1,0 +1,396 @@
+:root {
+  --azul: #1a4b8c;
+  --azul-claro: #eaf1fa;
+  --verde: #3a8a3a;
+  --verde-claro: #e6f3e6;
+  --texto: #142235;
+  --texto-suave: #5b6676;
+  --borda: #d5dbe3;
+  --erro: #b3261e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: var(--texto);
+  background: #fff;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--borda);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.topbar nav {
+  display: flex;
+  gap: 20px;
+}
+
+.topbar a {
+  color: var(--azul);
+  text-decoration: none;
+  padding-bottom: 6px;
+  border-bottom: 2px solid transparent;
+}
+
+.topbar a.active {
+  font-weight: 600;
+  color: var(--texto);
+  border-bottom-color: var(--azul);
+}
+
+.conteudo {
+  flex: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--azul);
+}
+
+h1 {
+  margin: 0 0 12px;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+}
+
+.subtitulo {
+  margin: 0 0 28px;
+  color: var(--texto-suave);
+}
+
+.rodape {
+  background: var(--azul);
+  color: #fff;
+  padding: 28px 24px;
+  font-size: 0.9rem;
+}
+
+.pagina-registro {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.cartao {
+  border: 1px solid var(--borda);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.secao-rotulo {
+  margin: 8px 0 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--azul);
+}
+
+.linha {
+  display: flex;
+  gap: 16px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  flex: 1;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  font: inherit;
+  font-weight: 400;
+  padding: 14px;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  outline: 2px solid var(--azul);
+  outline-offset: 1px;
+}
+
+.dica {
+  margin: 0 0 20px;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.botao-enviar {
+  font: inherit;
+  font-weight: 700;
+  color: #fff;
+  background: var(--verde);
+  border: none;
+  border-radius: 10px;
+  padding: 14px 22px;
+  cursor: pointer;
+}
+
+.botao-enviar:hover {
+  filter: brightness(0.92);
+}
+
+@media (max-width: 600px) {
+  .linha {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.filtros {
+  margin-bottom: 20px;
+}
+
+.filtros-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.filtros-topo h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.filtros-campos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.filtros-campos .campo {
+  margin-bottom: 0;
+}
+
+.botao-secundario {
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--texto);
+  background: #fff;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.botao-secundario:hover {
+  background: var(--azul-claro);
+}
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px;
+  border: 1px solid var(--borda);
+  border-left: 5px solid var(--azul);
+  border-radius: 16px;
+}
+
+.kpi-critico {
+  border-left-color: var(--erro);
+}
+
+.kpi-resolvido {
+  border-left-color: var(--verde);
+}
+
+.kpi-titulo {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+}
+
+.kpi-valor {
+  font-size: 2rem;
+}
+
+.kpi-legenda {
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+.tabela-cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.tabela-cabecalho h2 {
+  margin: 0;
+}
+
+.tabela-cabecalho .dica {
+  margin: 0;
+}
+
+.tabela-wrapper {
+  overflow-x: auto;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.tabela th {
+  text-align: left;
+  background: var(--azul-claro);
+  padding: 12px;
+  white-space: nowrap;
+}
+
+.tabela td {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--borda);
+  vertical-align: middle;
+}
+
+.tabela .vazio {
+  text-align: center;
+  color: var(--texto-suave);
+  padding: 32px;
+}
+
+.select-status {
+  display: block;
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 8px;
+  margin-bottom: 6px;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.selo-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.prioridade-critica {
+  background: var(--erro);
+  color: #fff;
+}
+
+.prioridade-alta {
+  background: #fde6cf;
+  color: #9a4a00;
+}
+
+.prioridade-media {
+  background: #fff3c4;
+  color: #7a5d00;
+}
+
+.prioridade-baixa {
+  background: #e3e8ef;
+  color: var(--texto);
+}
+
+.status-pendente {
+  background: #fde6cf;
+  color: #9a4a00;
+}
+
+.status-triagem {
+  background: var(--azul-claro);
+  color: var(--azul);
+}
+
+.status-resolvido {
+  background: var(--verde-claro);
+  color: var(--verde);
+}
+
+.modal-fundo {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 34, 53, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal h2 {
+  margin-top: 0;
+}
+
+.modal-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 14px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 800px) {
+  .kpis,
+  .filtros-campos {
+    grid-template-columns: 1fr;
+  }
+}
